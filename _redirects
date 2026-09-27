@@ -1,0 +1,7 @@
+# Régi Squarespace-slugok -> új oldalak (301). Ha az adott régi URL nem létezett,
+# a szabály egyszerűen nem aktiválódik. A meglévő fájlokat a Netlify előbb szolgálja
+# ki, így ezek nem érintik a valós oldalakat/clean URL-eket.
+/status-intermedius      /statusintermedius.html   301
+/vestigia-vitae          /vestigia.html            301
+/structura-ex-machina    /machines.html            301
+/machines-ex-structura   /machines.html            301

@@ -1,0 +1,680 @@
+/* ==========================================================
+   Aron Lorincz — portfolio site
+   Headings: Alice 400, lh 1.2, ls -0.02em (h1 4rem / h2 2.8 / h3 2.2 / h4 1.6)
+   Paragraphs: Work Sans 400, lh 1.5 (P1 1.4rem / P2 1rem / P3 0.9rem)
+   Base: 16px
+   ========================================================== */
+
+:root {
+  --bg: #e5e7e1;
+  --warm-white: #f4f6f4;
+  --text: #304736;
+  --muted: #5b6b5e;
+  --line: rgba(48,71,54,.16);
+  --maxw: 1400px;
+  --serif: 'Titillium Web', system-ui, sans-serif;
+  --sans: 'Titillium Web', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--sans); font-weight: 400; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; }
+h1 { font-size: 4rem; }
+h2 { font-size: 2.8rem; }
+h3 { font-size: 2.2rem; }
+h4 { font-size: 1.6rem; }
+p { font-size: 1.1rem; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+a:hover { opacity: .6; }
+
+/* ---------- header ---------- */
+.site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(6px); }
+.header-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 1.2rem 1.5rem;
+  display: flex; align-items: center; gap: clamp(2rem, 8vw, 10rem);
+}
+.site-title { font-family: var(--serif); font-size: 1.65rem; letter-spacing: -0.02em; white-space: nowrap; }
+/* a nav a jobb szélre tolva (margin-left:auto), a linkek között nagyobb a térköz —
+   az "Aron Lorincz" felirat balra, a nav (utolsó eleme az about) jobbra a szélén végződik */
+.site-nav { display: flex; gap: 3.6rem; font-size: 1.1rem; font-weight: 600; margin-left: auto; }
+.site-nav a.active { border-bottom: 1px solid var(--text); }
+/* dupla akkora rés az utolsó projekt és az "about" közé — vizuálisan elválik a
+   projektek csoportja az about-tól (a gap 3.6rem, +3.6rem = kb. 2x) */
+.site-nav a:last-child { margin-left: 3.6rem; }
+.menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; margin-left: auto; }
+
+/* ---------- home / hero ---------- */
+.home-page .hero { position: relative; height: 900px; overflow: hidden; }
+/* a home oldal háttere világoszöld, hogy a footer alatt (a tartalom végén túl)
+   ne a --bg csík, hanem a footer színe fusson ki a képernyő aljáig */
+body.home-page { background: var(--warm-white); }
+.hero-img { width: 100%; height: 100%; object-fit: cover; }
+.hero-text {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  color: #fff; text-shadow: 0 1px 14px rgba(0,0,0,.35);
+}
+.hero-text h1 { font-size: clamp(2.6rem, 4.4vw, 4rem); }
+.hero-text h3 { font-size: clamp(1.1rem, 1.6vw, 1.6rem); margin-top: 2.2rem; }
+/* a teljes hero-háttér kattintható: átlátszó link-overlay a kép és a szöveg fölött,
+   ami az első projektre (Status Intermedius) visz. A header nav ettől független
+   (az a .hero-n kívül van), így az továbbra is külön kattintható. */
+.home-page .hero { cursor: pointer; }
+.hero-link { position: absolute; inset: 0; z-index: 3; display: block; }
+
+/* ---------- gallery pages ---------- */
+.page {
+  max-width: var(--maxw); margin: 0 auto; padding: 3rem 1.5rem;
+  /* --unit = egy 60×75 cm-es munka szélessége: a work-grid teljes (100vw - oldalpadding) szélességéből
+     levonva 2 rést, elosztva 3-mal. Tisztán vw-alapú, abszolút képlet — nem függ attól, melyik
+     szekcióban használjuk, így a beszorzott arányok (0.5x, 1.33x, 1.6667x) garantáltan pontosak. */
+  --unit: calc((100vw - 2 * clamp(1.5rem, 6vw, 160px) - 3.2rem) / 3);
+}
+/* galéria oldalakon az insitu (világoszöld) blokk az utolsó elem — az alsó --bg
+   padding-csík eltüntetése, hogy az insitu és a világoszöld footer összeérjen */
+.gallery-page { padding-bottom: 0; }
+.page-title {
+  font-size: 2.8rem; text-align: center; margin-top: 1rem;
+  padding-bottom: 1.5rem; border-bottom: 1px solid var(--text);
+}
+.page-subtitle { text-align: center; margin: 1.2rem 0 2.5rem; }
+
+.intro-grid {
+  display: block; gap: 0;
+  max-width: 1400px; margin: 0 auto 3rem; align-items: start;
+}
+.intro-text p { font-size: 1.05rem; text-align: justify; margin-bottom: 1.1rem; }
+/* a médiaoszlop magasságát JS igazítja a szöveg magasságához (main.js: matchIntroHeights),
+   itt csak biztosítjuk, hogy a kép(ek) ne csorbuljanak, hanem teljes egészében beférjenek */
+.intro-media {
+  display: flex; flex-direction: column; gap: 1.2rem;
+  overflow: hidden;
+}
+.intro-media img, .intro-media video {
+  flex: 1 1 0; min-height: 0; width: 100%;
+  object-fit: contain; object-position: center;
+}
+
+.section-head { font-size: 2.1rem; text-align: center; margin: 5rem 0 2.2rem; position: relative; z-index: 10; }
+
+/* méretarányos rendszer: --unit = a 60×75 cm munkák alap-szélessége (1x).
+   Minden méretcsoport ehhez képest arányosan van beállítva, hogy a keretek
+   a valós fizikai méretarányuknak megfelelően jelenjenek meg egymáshoz képest. */
+.work-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start;
+  gap: 2.5rem 1.6rem; max-width: none;
+  width: 100vw; margin-left: calc(50% - 50vw);
+  margin-top: 5rem;
+  padding: 0 clamp(1.5rem, 6vw, 160px);
+}
+.work-grid .framed { width: var(--unit); flex: none; }
+/* 30×37,5 cm — a 60×75-ös alaphoz képest 50%, majd +10%, majd további +5% (0.5775x) */
+.work-grid.grid-4 .framed { width: calc(var(--unit) * 0.5775); }
+/* kényszerített sortörés: 4 kép felül, 2 kép alul (30×37,5 cm szekció) */
+.work-grid .row-break { flex-basis: 100%; width: 0; height: 0; margin: 0; padding: 0; }
+/* Vestigia Vitae, 85×60 cm (2 kép/sor marad) — kb. 33%-kal szélesebb, mint a 60cm-es alap */
+.work-grid.grid-2 .framed { width: calc(var(--unit) * 1.33); }
+
+/* in situ racs: szeles, negyzetes cropok (ettől független, fix oszlopos grid marad) */
+/* a felirat és a rács közös, egybefüggő világoszöld sávot alkot — nincs
+   köztük eltérő hátterű csík */
+.section-head.insitu-head {
+  width: 100vw; margin-left: calc(50% - 50vw);
+  margin-top: 0; margin-bottom: 0;
+  background: var(--warm-white);
+  padding: 4rem 1.5rem 2.5rem;
+}
+.work-grid.insitu {
+  display: grid;
+  max-width: none; width: 100vw; margin-left: calc(50% - 50vw);
+  margin-top: 0;
+  padding: 0 7vw 7vw; gap: 7vw;
+  background: var(--warm-white);
+}
+.work-grid.insitu figure {
+  aspect-ratio: 5 / 4;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.work-grid.insitu img { width: 100%; height: 100%; object-fit: cover; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.work-grid figure { margin: 0; }
+.work-grid figcaption, .single-work figcaption {
+  font-size: .8rem; color: var(--muted); margin-top: .6rem; text-align: left;
+}
+.work-grid img, .single-work img { width: 100%; cursor: zoom-in; }
+/* 100×120 cm (egyetlen legnagyobb munka) — a 60×75-ös alaphoz képest 100/60 arányban nagyobb.
+   Ugyanaz a full-bleed szélesség-alap, mint a work-gridnél, hogy a --unit % -a azonos px-et adjon.
+   Szándékosan nincs korlátozva: ha az arány miatt szélesebb a konténernél, kilóghat. */
+.single-work {
+  display: flex; justify-content: center; overflow: visible;
+  width: 100vw; margin-left: calc(50% - 50vw);
+  margin-top: 5rem;
+  padding: 0 clamp(1.5rem, 6vw, 160px);
+}
+.single-work .framed { width: calc(var(--unit) * 1.6667); flex: none; max-width: none; }
+
+/* ---------- framed artwork (picture-frame graphic behind each painting) ---------- */
+.framed { display: flex; flex-direction: column; }
+.framed-frame {
+  position: relative;
+  aspect-ratio: 1520 / 2144; /* fallback, egyedi képekhez felülírva inline style-lal */
+  background-size: 100% 100%; background-position: center; background-repeat: no-repeat;
+}
+.framed-crop {
+  position: absolute;
+  left: var(--crop-left); top: var(--crop-top);
+  width: var(--crop-width); height: var(--crop-height);
+  overflow: hidden;
+}
+.framed-crop img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  cursor: zoom-in;
+}
+/* bevel: sunken edge, matches the frame's mat opening */
+.framed-frame::after {
+  content: ''; position: absolute;
+  left: var(--crop-left); top: var(--crop-top);
+  width: var(--crop-width); height: var(--crop-height);
+  pointer-events: none; z-index: 2;
+  box-shadow: inset 2px 2px 0 rgba(0,0,0,.32), inset -2px -2px 0 rgba(0,0,0,.30);
+}
+/* halvány, két lépcsős csillanás csak a felső élen, jobbra elhalványulva */
+.framed-frame::before {
+  content: ''; position: absolute;
+  left: calc(var(--crop-left) + 2px); top: calc(var(--crop-top) + 2px);
+  width: calc(var(--crop-width) - 2px); height: calc(var(--crop-height) - 2px);
+  pointer-events: none; z-index: 3;
+  background:
+    linear-gradient(to right, rgba(255,255,255,.14), rgba(255,255,255,0) 60%) no-repeat 0 0 / 100% 1px,
+    linear-gradient(to right, rgba(255,255,255,.08), rgba(255,255,255,0) 45%) no-repeat 0 1px / 100% 2px;
+}
+/* frame variants — swap the graphic + its own calibrated crop box.
+   Egy méretcsoporton belül minden kép ugyanazt a keretet és crop-boxot kapja;
+   a doboz belsejében a kép full-bleed (cover), enyhe képarány-eltérés esetén vágva.
+   A crop-box pontos értékeit a frame-calibrator.html-lel lehet finomhangolni. */
+.frame-small {
+  aspect-ratio: 729 / 1073;
+  background-image: url('../images/common/frame_5.jpg');
+  --crop-left: 6.74%; --crop-top: 12.95%; --crop-width: 85.29%; --crop-height: 72.52%;
+}
+.frame-large {
+  aspect-ratio: 1520 / 2144;
+  background-image: url('../images/common/framebig1.jpg');
+  --crop-left: 6.56%; --crop-top: 12.78%; --crop-width: 85.46%; --crop-height: 72.98%;
+}
+/* Vestigia Vitae — 60×85 cm munkák (fekvő keret), l. frame-calibrator-60x85.html */
+.frame-60x85 {
+  aspect-ratio: 991 / 914;
+  background-image: url('../images/common/frame_85x60.jpg');
+  --crop-left: 5.09%; --crop-top: 15.11%; --crop-width: 88.91%; --crop-height: 67.91%;
+}
+/* Status Intermedius — 60×75 cm munkák (világos keret) */
+.frame-60x75-vilagos {
+  aspect-ratio: 729 / 1073;
+  background-image: url('../images/common/frame_60x75_vilagos.jpg');
+  --crop-left: 6.74%; --crop-top: 12.95%; --crop-width: 85.29%; --crop-height: 72.52%;
+}
+/* Structura Ex Machina — 60×75 cm munkák (sötét keret) */
+.frame-60x75-sotet {
+  aspect-ratio: 729 / 1073;
+  background-image: url('../images/common/frame_60x75_sotet.jpg');
+  --crop-left: 6.74%; --crop-top: 12.95%; --crop-width: 85.29%; --crop-height: 72.52%;
+}
+/* Status Intermedius — 30×37,5 cm munkák (világos keret) */
+.frame-30x37-vilagos {
+  aspect-ratio: 423 / 697;
+  background-image: url('../images/common/frame_30x37_vilagos.jpg');
+  --crop-left: 11.79%; --crop-top: 19.96%; --crop-width: 74.54%; --crop-height: 57.50%;
+}
+/* 60×75 cm munkák kerete kicsit jobbra nyújtva (bal élről rögzítve) */
+.frame-shift-r { transform: scaleX(1.02); transform-origin: left center; }
+
+/* caption pulled up into the frame's blank lower mat, centered like the frame label */
+figure.framed figcaption.framed-caption {
+  margin-top: -11.5%; position: relative; z-index: 4; text-align: center; padding: 0 6%;
+}
+.framed-caption .fw-title {
+  display: block;
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+  color: var(--text); line-height: 1.3;
+  margin-bottom: .35rem;
+}
+.framed-caption .fw-meta {
+  display: block;
+  font-size: .75rem; letter-spacing: .03em; color: var(--text);
+}
+
+/* ---------- carousel (full-bleed "kukucskáló" ablak) ----------
+   A csík a "lyuk": az aktív slide saját CSS background-image-je
+   background-attachment:fixed, tehát a viewporthoz képest nem mozdul,
+   miközben maga a csík (mint minden más elem) a normál dokumentum-
+   folyamban, a helyén marad — nem kerülhet más tartalom fölé. Így úgy
+   tűnik, mintha a kép fixen állna a háttérben, és a csíkon át, mint egy
+   lyukon, mindig más darabját látnánk, ahogy scrollozunk. A prev/next
+   gombok csak azt váltják, melyik kép aktív ebben az ablakban. */
+.carousel {
+  position: relative; width: 100vw; margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  height: clamp(320px, 38vw, 640px);
+  background: var(--bg);
+}
+.carousel-track { position: relative; width: 100%; height: 100%; }
+.carousel-slide {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0;
+  transition: opacity .8s ease;
+  pointer-events: none;
+}
+.carousel-slide.active { opacity: 1; pointer-events: auto; }
+.carousel-slide img { display: none; }
+/* halvány drop shadow a "lyuk" felső éle alatt, mintha lenne mélysége —
+   a slide-ok fölé kell kerülnie (z-index), különben a fotó eltakarja */
+.carousel::after {
+  content: ''; position: absolute; inset: 0; z-index: 4; pointer-events: none;
+  box-shadow: inset 0 14px 18px -10px rgba(0,0,0,.4);
+}
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,.75); border: none; cursor: pointer;
+  width: 42px; height: 42px; border-radius: 50%;
+  font-size: 1.6rem; line-height: 1; color: #222; z-index: 6;
+}
+.carousel-btn.prev { left: 14px; }
+.carousel-btn.next { right: 14px; }
+.carousel-btn:hover { background: #fff; }
+
+/* ---------- about ---------- */
+.about-title { font-size: 2.8rem; max-width: 1400px; margin: 1rem auto 2.5rem; }
+.vision-grid {
+  display: grid; grid-template-columns: .8fr 1.2fr; gap: 3.5rem;
+  max-width: 1400px; margin: 0 auto 4rem; align-items: stretch;
+}
+/* a kép doboza (crop box) a szöveg magasságához nyúlik — mivel a grid sor a
+   (magasabb) szöveghez igazodik és a kép csak "stretch"-csel nő lefelé, a teteje
+   helyben marad. A kép maga object-fit:cover-rel tölti ki — a képarány nem torzul,
+   csak a doboznál nagyobb rész vágódik (mint minden más keretezett képnél). */
+.vision-img { overflow: hidden; }
+.vision-img img { width: 100%; height: 100%; object-fit: cover; object-position: 42% center; display: block; }
+.vision-text p { margin-bottom: 1.2rem; }
+/* rövid bemutatkozó lead-mondat az about tetején (név + szerep + hely) */
+.vision-text p.vision-lead { font-size: 1.2rem; color: var(--text); margin-bottom: 1.6rem; }
+.cv { max-width: 1400px; margin: 0 auto 4rem; }
+.cv-acc { border-top: 1px solid var(--text); }
+.cv:last-of-type { border-bottom: 1px solid var(--text); }
+.cv-acc summary {
+  font-family: var(--serif); font-size: 1.3rem; letter-spacing: .06em;
+  padding: 1.3rem 0; cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.cv-acc summary::-webkit-details-marker { display: none; }
+.cv-acc summary::after { content: '+'; font-size: 1.5rem; font-weight: 300; }
+.cv-acc[open] summary::after { content: '\2212'; }
+.cv-acc ul { list-style: none; padding: 0 0 1.5rem; }
+.cv-acc li { font-size: .9rem; margin-bottom: .8rem; color: var(--muted); max-width: 800px; }
+.cv-acc li strong { color: var(--text); }
+.cv-acc a { text-decoration: underline; }
+
+.contact-split {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  max-width: 1400px; margin: 0 auto 5rem;
+}
+.contact-split h2 { padding-left: 5%; }
+.contact-right p { margin-bottom: 1.5rem; }
+.contact-right a { text-decoration: underline; }
+#contact-form label { display: block; font-size: .85rem; margin-bottom: 1.1rem; }
+#contact-form label span { color: var(--muted); font-size: .8rem; }
+#contact-form .form-label { font-size: .9rem; margin-bottom: .4rem; }
+#contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+#contact-form input, #contact-form textarea {
+  width: 100%; margin-top: .35rem; padding: .55rem .7rem;
+  border: 1px solid rgba(48,71,54,.4); border-radius: 6px;
+  font-family: var(--sans); font-size: .95rem; background: #fff;
+}
+#contact-form button {
+  background: var(--text); color: #fff; border: none; border-radius: 6px;
+  padding: .8rem 1.6rem; font-family: var(--sans); font-size: .85rem;
+  letter-spacing: .08em; cursor: pointer;
+}
+#contact-form button:hover { opacity: .8; }
+#contact-form button:disabled { opacity: .5; cursor: default; }
+/* űrlap visszajelzések (Netlify Forms AJAX beküldés után) */
+.form-success { font-size: 1.15rem; color: var(--text); line-height: 1.6; }
+.form-error { margin-top: 1rem; font-size: .9rem; color: #a3352f; }
+.form-error a { text-decoration: underline; }
+
+.studio-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4px; width: 100vw;
+}
+.studio-strip img { width: 100%; height: 420px; object-fit: cover; }
+/* alsó képsor középső eleme lejjebb tolva 20%-kal */
+.studio-strip img:nth-child(2) { object-position: center 30%; }
+
+/* ---------- footer ---------- */
+.site-footer { padding: 3.5rem 1.5rem 2rem; background: var(--warm-white); }
+.footer-inner {
+  max-width: var(--maxw); margin: 0 auto;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 2.5rem;
+}
+.footer-signage { width: 160px; flex-shrink: 0; }
+/* a logó eredetileg fekete — CSS filterrel sötétzöldre (--text, #304736) színezve.
+   A paramétereket úgy számoltam ki, hogy a fehér pontosan fehér (255,255,255)
+   maradjon a filter után is, így a multiply blend (fehér = átlátszó) nem sérül. */
+.footer-signage img {
+  mix-blend-mode: multiply;
+  filter: invert(22%) sepia(76%) saturate(57%) hue-rotate(83deg) brightness(146%) contrast(186%);
+}
+.footer-social { padding-top: .8rem; }
+.footer-social svg { width: 26px; height: 26px; }
+.footer-cols { display: flex; gap: 4.5rem; text-align: right; }
+.footer-cols h4 { margin-bottom: 1.2rem; }
+.footer-cols p { font-size: .95rem; }
+.footer-cols a { text-decoration: underline; }
+.copyright { max-width: var(--maxw); margin: 3rem auto 0; text-align: right; font-size: .85rem; color: var(--muted); }
+
+/* ---------- lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200; background: rgba(10,10,10,.93);
+  display: none; align-items: center; justify-content: center;
+  padding: 2rem; cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 95vw; max-height: 92vh; width: auto; height: auto; }
+
+/* ---------- mobile ---------- */
+@media (max-width: 900px) {
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2.2rem; }
+  .menu-toggle { display: block; }
+  .site-nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--warm-white); border-bottom: 1px solid var(--line);
+    flex-direction: column; padding: 1rem 1.5rem; gap: 1rem;
+  }
+  .site-nav.open { display: flex; }
+  /* a lenyíló (függőleges) mobil menüben az "about" ne tolódjon jobbra;
+     helyette egy kis függőleges rés + elválasztó vonal jelzi a különállását */
+  .site-nav a:last-child { margin-left: 0; margin-top: .6rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+  .home-page .hero { height: 60vh; }
+  .intro-grid, .vision-grid, .contact-split { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-split h2 { padding-left: 0; }
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+  .work-grid figure[style] { grid-column: auto !important; }
+  .studio-strip img { height: 300px; }
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+  .footer-cols { text-align: center; gap: 2.5rem; }
+  .copyright { text-align: center; }
+}
+@media (max-width: 560px) {
+  .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ---------- tablet / iPad (601–1024px) ----------
+   A monitoros, 3-oszlopos arányrendszer helyett itt: 2 kép a 60×75 cm-es
+   csoportból, 3 kép a 30×37,5 cm-esből, 1 a 100×120 cm-esből.
+   A kényszerített sortörést ki kell kapcsolni, különben a 3-as elrendezés
+   3+1+2-re esne szét. A szélességek a work-grid 1.6rem-es oszlopközét veszik le. */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .work-grid .framed,
+  .work-grid.grid-2 .framed { width: calc(50% - 0.8rem); }
+  .work-grid.grid-4 .framed { width: calc(33.3333% - 1.0667rem); }
+  .single-work .framed { width: 100%; }
+  .work-grid .row-break { display: none; }
+}
+
+/* ---------- mobil (max 600px) ----------
+   A --unit alapú arányos raszter itt értelmetlenül kicsivé tenné a műveket
+   (a képernyő harmada, a 30×37,5-ösöknél annak is a fele), ezért mobilon
+   minden mű egyesével, teljes szélességben jelenik meg — nagyítás/kicsinyítés
+   nélkül. Az in-situ rács viszont kettes oszlopban marad. */
+@media (max-width: 600px) {
+  .work-grid .framed,
+  .work-grid.grid-2 .framed,
+  .work-grid.grid-4 .framed,
+  .single-work .framed { width: 100%; }
+  .work-grid .row-break { display: none; }
+
+  /* A műveket tartalmazó rácsok mobilon vízszintes, "suhintható" galériává
+     válnak: egy kép tölti ki a nézetet, oldalra húzva jön a következő.
+     Az in-situ rács ebből kimarad (az marad kétoszlopos, lefelé). */
+  .work-grid:not(.insitu) {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    /* nagyobb vízszintes térköz a képek közt: az alap 1.6rem (~26px) kevés volt,
+       a 60×75-ös keretek a .frame-shift-r scaleX(1.02) nyújtása miatt még be is
+       lógtak a szomszédba. 10rem (~160px) tisztán elválasztja őket. */
+    column-gap: 10rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* A snap-terület szimmetrikus marad (nincs egyoldali scroll-padding), különben
+       a "közép" eltolódna és a képek nem pontosan középen állnának meg. */
+    scroll-padding: 0;
+    /* diszkrét vonal a képek alatt: jelzi, hogy jobbra-balra lehet suhintani.
+       A border a konténer dobozán van, ezért nem gördül el a tartalommal. */
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    scrollbar-width: thin;
+    scrollbar-color: var(--muted) rgba(48,71,54,.12);
+    /* Nyíl-piktogramok a vonal két végén. Két háttérréteg: a bal és a jobb nyíl.
+       A main.js a .can-left / .can-right osztályokkal kapcsolja őket aszerint,
+       hogy az adott irányba lehet-e még húzni (így az első képnél nincs bal nyíl,
+       az utolsónál nincs jobb). A nem aktív réteg értéke `none`.
+       A háttér a konténer dobozához tapad, ezért a helyén marad, míg a képek
+       elgördülnek alatta. */
+    --arrow-l: none;
+    --arrow-r: none;
+    background-image: var(--arrow-l), var(--arrow-r);
+    background-repeat: no-repeat, no-repeat;
+    background-position: left .7rem bottom .3rem, right .7rem bottom .3rem;
+  }
+  .work-grid:not(.insitu).can-left {
+    --arrow-l: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='17' viewBox='0 0 30 17'%3E%3Cpath d='M28 8.5H4M11 2 4 8.5 11 15' fill='none' stroke='%232f3a32' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+  .work-grid:not(.insitu).can-right {
+    --arrow-r: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='17' viewBox='0 0 30 17'%3E%3Cpath d='M2 8.5h24M19 2 26 8.5 19 15' fill='none' stroke='%232f3a32' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+  .work-grid:not(.insitu)::-webkit-scrollbar { height: 4px; }
+  .work-grid:not(.insitu)::-webkit-scrollbar-track { background: rgba(48,71,54,.12); border-radius: 2px; }
+  .work-grid:not(.insitu)::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 2px; }
+  /* Instagram-szerű léptetés: a scroll-snap-stop:always miatt egy húzás mindig
+     pontosan egy képet lép — nem lehet átpörögni többön, és mindig középen áll be. */
+  .work-grid:not(.insitu) .framed { scroll-snap-align: center; scroll-snap-stop: always; }
+
+  /* A bevezető médiaoszlop magasságát JS igazítja a szöveghez — mobilon,
+     egymás alatti elrendezésben ez egy óriási üres dobozt csinálna a kép körül.
+     Itt visszaadjuk a természetes magasságot (az inline stílust !important üti). */
+  .intro-media { height: auto !important; }
+  .intro-media img, .intro-media video { flex: none; height: auto; width: 100%; }
+
+  /* szorosabb függőleges ritmus, hogy a szöveg → kép → művek egymás után jöjjön */
+  .intro-grid { margin-bottom: 1.5rem; }
+  .section-head { margin: 2.5rem 0 1.2rem; }
+  .work-grid { margin-top: 1.5rem; }
+  .single-work { margin-top: 1.5rem; }
+
+  /* in-situ vizualizációk: két kép egymás mellett */
+  .work-grid.insitu { grid-template-columns: repeat(2, 1fr); }
+  /* details "kukucskáló" háttér: 200%-os nagyítás, hogy tényleg részlet legyen
+     (a background-size egyértékű alakja a szélességet állítja, a magasság
+     arányosan követi — a képarány nem torzul) */
+  .carousel-slide { background-size: 200%; }
+}
+
+/* ============================================================
+   ARTWORK DETAIL PANEL
+   Desktop: lebegő ablak sötétített háttéren (X / mellékattintás / ESC).
+   Mobil (≤700px): teljes képernyős lap, alulról felcsúszva, ragadós fejléc.
+   ============================================================ */
+.ap-backdrop{
+  position:fixed; inset:0; z-index:200; background:rgba(20,20,18,.72);
+  display:none; opacity:0; transition:opacity .22s ease;
+  overflow-y:auto; padding:3vh 2vw;
+}
+.ap-backdrop.open{ display:block; opacity:1; }
+body.ap-lock{ overflow:hidden; }
+
+.ap-panel{
+  position:relative; max-width:1600px; margin:0 auto;
+  background:var(--bg); border-radius:4px;
+  box-shadow:0 24px 70px rgba(0,0,0,.4);
+  transform:translateY(14px); opacity:0; transition:transform .26s ease, opacity .26s ease;
+}
+.ap-backdrop.open .ap-panel{ transform:none; opacity:1; }
+
+.ap-close{
+  position:absolute; top:10px; right:10px; z-index:5;
+  width:40px; height:40px; border-radius:50%;
+  border:1px solid var(--line); background:rgba(255,255,255,.92);
+  font-size:1.25rem; line-height:1; color:var(--text); cursor:pointer;
+}
+.ap-close:hover{ background:#fff; }
+
+/* felirat a kép FÖLÖTT — a kép rögtön alatta kezdődik */
+.ap-head{ text-align:center; padding:1.5rem 3rem .35rem; }
+.ap-head h2{ font-family:var(--serif); font-weight:400; font-size:1.7rem; line-height:1.25; }
+.ap-head .ap-meta{ font-size:.82rem; letter-spacing:.05em; color:var(--text); margin-top:.5rem; }
+
+/* mű-lapozó nyilak a keret MELLETT — kis gombóc, fixen a panel szélénél, függőlegesen középen */
+.ap-nav{ position:fixed; top:50%; transform:translateY(-50%); z-index:240;
+  width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; padding:0;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.85); color:#1c1c1a; box-shadow:0 1px 6px rgba(0,0,0,.3); }
+.ap-nav:hover{ background:#fff; }
+.ap-nav:disabled{ opacity:.28; cursor:default; }
+/* nyilak a panel (1600) széléhez igazítva — a szélesítéssel együtt kijjebb */
+.ap-prev{ left:max(6px, calc(50vw - 878px)); }
+.ap-next{ right:max(6px, calc(50vw - 878px)); }
+
+.ap-hero{ padding:0 clamp(1rem,3vw,2rem) 0; }
+.ap-hero .framed{ display:block; overflow:hidden; width:100%; max-width:1120px; margin:0 auto;
+  /* lágy ~22px fade a felső/alsó élen: a háttérszín átvezetése a képre, nincs éles csík */
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%);
+  mask-image:linear-gradient(to bottom, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%); }
+/* a keret-JPG üres "fal"-jából csak a felesleget vágjuk (a reflex-fény átmenet megmarad),
+   CSAK a panelben — a galériát nem érinti. Alul kicsit több hely marad. */
+/* landscape mű: a keret kitölti a szélesebb (1600) panelt; portré marad 1120px-en */
+.ap-backdrop.ap-wide-mode .ap-hero .framed{ max-width:none; }
+.ap-hero .frame-large{ margin-top:-11.6%; margin-bottom:-9.9%; }
+.ap-hero .frame-60x75-vilagos{ margin-top:-12.1%; margin-bottom:-10.3%; }
+.ap-hero .frame-60x75-sotet{ margin-top:-11.9%; margin-bottom:-10.3%; }
+.ap-hero .frame-60x85{ margin-top:-9.5%; margin-bottom:-8.4%; }
+/* a kis 30×37-es keret: nagyobb üres-vágás (a keret-JPG most már a standard néven hi-res) */
+.ap-hero .frame-30x37-vilagos{ margin-top:-24.1%; margin-bottom:-22.7%; }
+
+.ap-sections{ padding:.35rem clamp(1rem,4vw,3rem) 1rem; }
+.ap-section{ margin-bottom:3.8rem; }
+.ap-section h3{
+  font-size:1.12rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--text); text-align:center; padding-bottom:.9rem; margin-bottom:1.6rem;
+  border-bottom:1px solid var(--line);
+}
+.ap-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(.6rem,1.4vw,1.1rem); }
+.ap-grid figure{
+  margin:0; position:relative;
+  background:#fff; padding:6px;               /* kis fehér paszpartu */
+  box-shadow:0 1px 4px rgba(0,0,0,.14);       /* vékony, minimális drop shadow */
+}
+.ap-grid img{
+  width:100%; aspect-ratio:1/1; object-fit:cover; display:block;
+  background:#f2f2ef; cursor:zoom-in;
+}
+
+.ap-foot{ text-align:center; padding:.6rem 1rem 2.6rem; }
+.ap-back{
+  font:inherit; font-size:.85rem; letter-spacing:.06em;
+  background:none; border:1px solid var(--text); color:var(--text);
+  padding:.7rem 1.6rem; border-radius:2px; cursor:pointer;
+}
+.ap-back:hover{ background:var(--bg); }
+
+/* iPad / közepes: 2 oszlop */
+@media (max-width:1024px){ .ap-grid{ grid-template-columns:repeat(2,1fr); } }
+
+/* Mobil: teljes képernyős lap, felcsúszva */
+@media (max-width:700px){
+  .ap-backdrop{ padding:0; background:var(--bg); }
+  .ap-panel{
+    max-width:none; min-height:100vh; border-radius:0; box-shadow:none;
+    transform:translateY(100%); transition:transform .3s ease;
+  }
+  .ap-backdrop.open .ap-panel{ transform:none; }
+  .ap-close{
+    position:sticky; top:0; left:auto; margin-left:auto; display:block;
+    border:0; border-bottom:1px solid var(--line); border-radius:0;
+    width:100%; height:48px; text-align:right; padding-right:1rem;
+    background:rgba(244,246,244,.96); backdrop-filter:blur(6px);
+  }
+  .ap-head{ padding:1.1rem 1.2rem .35rem; }
+  .ap-head h2{ font-size:1.3rem; }
+  .ap-nav{ width:36px; height:36px; }
+  .ap-prev{ left:6px; } .ap-next{ right:6px; }
+  .ap-hero{ padding:0 1.1rem 0; }
+  .ap-sections{ padding:.35rem 1.1rem 0; }
+  .ap-grid{ grid-template-columns:repeat(2,1fr); gap:.5rem; }
+}
+
+/* a lightbox a panel fölött nyíljon */
+.lightbox{ z-index:300; }
+
+/* lightbox lapozó-nyilak + számláló */
+.lb-nav{
+  position:fixed; top:50%; transform:translateY(-50%); z-index:310;
+  width:52px; height:52px; border-radius:50%; border:none; cursor:pointer;
+  background:rgba(255,255,255,.82); color:#1c1c1a; font-size:2rem; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+}
+.lb-nav:hover{ background:#fff; }
+.lb-prev{ left:2vw; } .lb-next{ right:2vw; }
+.lb-count{
+  position:fixed; bottom:3vh; left:50%; transform:translateX(-50%); z-index:310;
+  color:#f4f6f4; font-size:.82rem; letter-spacing:.06em;
+  background:rgba(0,0,0,.42); padding:4px 13px; border-radius:20px;
+}
+@media (max-width:700px){
+  .lb-nav{ width:44px; height:44px; font-size:1.6rem; background:rgba(255,255,255,.72); }
+  .lb-prev{ left:6px; } .lb-next{ right:6px; }
+}
+
+/* ---------- EN/HU nyelvváltó ---------- */
+.lang-switch{ display:inline-flex; align-items:center; gap:.35rem; font-size:1rem; font-weight:600; }
+.lang-switch .sep{ color:var(--line); }
+.lang-btn{ background:none; border:none; cursor:pointer; font:inherit; color:var(--muted); padding:0; letter-spacing:.02em; }
+.lang-btn:hover{ color:var(--text); }
+.lang-btn.active{ color:var(--text); border-bottom:1px solid var(--text); }
+/* a .site-nav a:last-child { margin-left } szabály ne lökje el a váltó HU gombját */
+.site-nav .lang-switch a{ margin:0; }
+@media (max-width: 900px){
+  .site-nav .lang-switch{ margin-left:0; margin-top:.6rem; padding-top:.8rem; border-top:1px solid var(--line); }
+}
+
+
+/* ---------- sold marker ----------
+   A work is shown as sold by <span class="fw-sold"> in its gallery caption and
+   "sold": true in data/artworks-*.js (the detail panel reads that).
+   Set/removed with _DASHBOARD_/tools/site_mark_sold.py. */
+.framed-caption .fw-sold, .ap-head .ap-sold {
+  display: flex; align-items: center; justify-content: center; gap: .5em;
+  font-size: .72rem; letter-spacing: .04em; color: var(--muted); margin-top: .3rem;
+}
+.framed-caption .fw-sold::before, .ap-head .ap-sold::before {
+  content: ""; flex: none; width: .6em; height: .6em; border-radius: 50%; background: #b0281f;
+}
+.ap-head .ap-sold { margin-top: .45rem; }

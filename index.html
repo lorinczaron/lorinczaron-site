@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+  /* Első látogatáskor magyar böngészőnél a magyar verzióra irányít; a kézi választást tiszteli. */
+  (function(){try{var p=null;try{p=localStorage.getItem("lang");}catch(e){}
+  if(p==="en")return; if(p==="hu"){location.replace("/hu/");return;}
+  var ls=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||""];
+  if(ls.some(function(l){return String(l).toLowerCase().indexOf("hu")===0;}))location.replace("/hu/");}catch(e){}})();
+  </script>
+  <title>Aron Lorincz | Embrace Stillness - slow presence in a fast world</title>
+  <meta name="description" content="Explore the oil painting art of Aron Lorincz, highlighting modern abstraction and slow presence amidst a fast-paced world.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://lorinczaron.com/">
+  <link rel="alternate" hreflang="en" href="https://lorinczaron.com/">
+  <link rel="alternate" hreflang="hu" href="https://lorinczaron.com/hu/">
+  <link rel="alternate" hreflang="x-default" href="https://lorinczaron.com/">
+  <meta name="author" content="Aron Lorincz">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aron Lorincz">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://lorinczaron.com/">
+  <meta property="og:title" content="Aron Lorincz | Contemporary Oil Painter — Embrace Stillness">
+  <meta property="og:description" content="The official site of Aron Lorincz (Áron Lőrincz), contemporary oil painter. Still lifes and figurative works on slow presence in a fast world.">
+  <meta property="og:image" content="https://lorinczaron.com/images/common/aron-lorincz-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aron Lorincz | Contemporary Oil Painter">
+  <meta name="twitter:description" content="The official site of Aron Lorincz (Áron Lőrincz), contemporary oil painter.">
+  <meta name="twitter:image" content="https://lorinczaron.com/images/common/aron-lorincz-og.jpg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://lorinczaron.com/#person",
+        "name": "Aron Lorincz",
+        "alternateName": "Áron Lőrincz",
+        "url": "https://lorinczaron.com/",
+        "sameAs": ["https://www.instagram.com/aron.lorincz.painter", "https://www.linkedin.com/in/lorinczaron/", "https://www.wikidata.org/wiki/Q141000591"],
+        "image": "https://lorinczaron.com/images/home/aron-lorincz-still-life.jpg",
+        "jobTitle": "Painter",
+        "description": "Contemporary Hungarian oil painter creating still lifes and figurative works that explore stillness and slow presence in a fast-paced world.",
+        "nationality": "Hungarian",
+        "knowsAbout": ["Oil painting", "Contemporary art", "Still life painting", "Figurative painting"],
+        "workLocation": { "@type": "Place", "name": "Budapest, Hungary" },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Aron Lorincz Ateliers",
+          "url": "https://aronlorincz.com/"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://lorinczaron.com/#website",
+        "url": "https://lorinczaron.com/",
+        "name": "Aron Lorincz",
+        "description": "Official website of contemporary oil painter Aron Lorincz (Áron Lőrincz).",
+        "inLanguage": "en",
+        "about": { "@id": "https://lorinczaron.com/#person" }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-title" href="index.html">Aron Lorincz</a>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+      <nav class="site-nav">
+        <a href="statusintermedius.html">Status Intermedius</a>
+        <a href="vestigia.html">Vestigia Vitae</a>
+        <a href="machines.html">Structura Ex Machina</a>
+        <a href="about.html">about</a>
+      <div class="lang-switch"><a class="lang-btn active" href="/">EN</a><span class="sep">/</span><a class="lang-btn" href="/hu/">HU</a></div></nav>
+    </div>
+  </header>
+
+  <main class="home">
+    <section class="hero">
+      <img src="images/home/aron-lorincz-still-life.jpg" alt="Still life oil painting by Aron Lorincz" loading="lazy" class="hero-img" onerror="this.onerror=null;this.src='https://images.squarespace-cdn.com/content/v1/668278719c1cb620b1931d03/0de4ca0b-1091-4331-92ff-24fd6d373826/still_5.jpg?format=2500w'">
+      <div class="hero-text">
+        <h1>ordo invisibilis</h1>
+        <h3>slow presence in a fast world</h3>
+      </div>
+      <a href="statusintermedius.html" class="hero-link" aria-label="Enter the gallery — Status Intermedius"></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-signage"><img src="images/common/signage.jpg" alt="Aron Lorincz signage" loading="lazy"></div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/aron.lorincz.painter" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2.5" width="19" height="19" rx="5.2"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/lorinczaron/" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2.5" width="19" height="19" rx="5.2"/><line x1="7" y1="10.5" x2="7" y2="17"/><circle cx="7" cy="7.2" r="0.9" fill="currentColor" stroke="none"/><path d="M10.8 17v-6.5 M10.8 13.3a2.6 2.6 0 0 1 5.2 0V17"/></svg>
+        </a>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>studio</h4>
+          <p>Margareta str. 6.<br>HU-Budapest, 1124</p>
+        </div>
+        <div>
+          <h4>contact</h4>
+          <p><a href="mailto:aron@aronlorincz.com">aron@aronlorincz.com</a><br>+36 305651167</p>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">all rights reserved &copy; L&#337;rincz &Aacute;ron - 2026</p>
+  </footer>
+  <script src="js/lang-pref.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "bd1dc45e302a40e6a27a272f9af3fa6c"}'></script>
+</body>
+</html>

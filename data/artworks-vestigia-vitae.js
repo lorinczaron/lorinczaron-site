@@ -15,23 +15,23 @@ window.ARTWORK_DATA["vestigia-vitae"] = {
     "label": "Detail views",
     "items": [
      {
-      "src": "images/vestigia-vitae/artworks/1/details/details-01.jpg",
-      "full": "images/vestigia-vitae/artworks/1/details/full/details-01.jpg",
+      "src": "images/vestigia-vitae/artworks/1/details/aron-lorincz-vestigia-vitae-01-detail-01.jpg",
+      "full": "images/vestigia-vitae/artworks/1/details/full/aron-lorincz-vestigia-vitae-01-detail-01.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 1 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/1/details/details-02.jpg",
-      "full": "images/vestigia-vitae/artworks/1/details/full/details-02.jpg",
+      "src": "images/vestigia-vitae/artworks/1/details/aron-lorincz-vestigia-vitae-01-detail-02.jpg",
+      "full": "images/vestigia-vitae/artworks/1/details/full/aron-lorincz-vestigia-vitae-01-detail-02.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 1 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/1/details/details-03.jpg",
-      "full": "images/vestigia-vitae/artworks/1/details/full/details-03.jpg",
+      "src": "images/vestigia-vitae/artworks/1/details/aron-lorincz-vestigia-vitae-01-detail-03.jpg",
+      "full": "images/vestigia-vitae/artworks/1/details/full/aron-lorincz-vestigia-vitae-01-detail-03.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 1 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/1/details/details-04.jpg",
-      "full": "images/vestigia-vitae/artworks/1/details/full/details-04.jpg",
+      "src": "images/vestigia-vitae/artworks/1/details/aron-lorincz-vestigia-vitae-01-detail-04.jpg",
+      "full": "images/vestigia-vitae/artworks/1/details/full/aron-lorincz-vestigia-vitae-01-detail-04.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 1 — detail views"
      }
     ]
@@ -52,23 +52,23 @@ window.ARTWORK_DATA["vestigia-vitae"] = {
     "label": "Detail views",
     "items": [
      {
-      "src": "images/vestigia-vitae/artworks/2/details/details-01.jpg",
-      "full": "images/vestigia-vitae/artworks/2/details/full/details-01.jpg",
+      "src": "images/vestigia-vitae/artworks/2/details/aron-lorincz-vestigia-vitae-02-detail-01.jpg",
+      "full": "images/vestigia-vitae/artworks/2/details/full/aron-lorincz-vestigia-vitae-02-detail-01.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 2 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/2/details/details-02.jpg",
-      "full": "images/vestigia-vitae/artworks/2/details/full/details-02.jpg",
+      "src": "images/vestigia-vitae/artworks/2/details/aron-lorincz-vestigia-vitae-02-detail-02.jpg",
+      "full": "images/vestigia-vitae/artworks/2/details/full/aron-lorincz-vestigia-vitae-02-detail-02.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 2 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/2/details/details-03.jpg",
-      "full": "images/vestigia-vitae/artworks/2/details/full/details-03.jpg",
+      "src": "images/vestigia-vitae/artworks/2/details/aron-lorincz-vestigia-vitae-02-detail-03.jpg",
+      "full": "images/vestigia-vitae/artworks/2/details/full/aron-lorincz-vestigia-vitae-02-detail-03.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 2 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/2/details/details-04.jpg",
-      "full": "images/vestigia-vitae/artworks/2/details/full/details-04.jpg",
+      "src": "images/vestigia-vitae/artworks/2/details/aron-lorincz-vestigia-vitae-02-detail-04.jpg",
+      "full": "images/vestigia-vitae/artworks/2/details/full/aron-lorincz-vestigia-vitae-02-detail-04.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 2 — detail views"
      }
     ]
@@ -89,18 +89,18 @@ window.ARTWORK_DATA["vestigia-vitae"] = {
     "label": "Detail views",
     "items": [
      {
-      "src": "images/vestigia-vitae/artworks/3/details/details-01.jpg",
-      "full": "images/vestigia-vitae/artworks/3/details/full/details-01.jpg",
+      "src": "images/vestigia-vitae/artworks/3/details/aron-lorincz-vestigia-vitae-03-detail-01.jpg",
+      "full": "images/vestigia-vitae/artworks/3/details/full/aron-lorincz-vestigia-vitae-03-detail-01.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 3 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/3/details/details-02.jpg",
-      "full": "images/vestigia-vitae/artworks/3/details/full/details-02.jpg",
+      "src": "images/vestigia-vitae/artworks/3/details/aron-lorincz-vestigia-vitae-03-detail-02.jpg",
+      "full": "images/vestigia-vitae/artworks/3/details/full/aron-lorincz-vestigia-vitae-03-detail-02.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 3 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/3/details/details-03.jpg",
-      "full": "images/vestigia-vitae/artworks/3/details/full/details-03.jpg",
+      "src": "images/vestigia-vitae/artworks/3/details/aron-lorincz-vestigia-vitae-03-detail-03.jpg",
+      "full": "images/vestigia-vitae/artworks/3/details/full/aron-lorincz-vestigia-vitae-03-detail-03.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 3 — detail views"
      }
     ]
@@ -121,23 +121,23 @@ window.ARTWORK_DATA["vestigia-vitae"] = {
     "label": "Detail views",
     "items": [
      {
-      "src": "images/vestigia-vitae/artworks/4/details/details-01.jpg",
-      "full": "images/vestigia-vitae/artworks/4/details/full/details-01.jpg",
+      "src": "images/vestigia-vitae/artworks/4/details/aron-lorincz-vestigia-vitae-04-detail-01.jpg",
+      "full": "images/vestigia-vitae/artworks/4/details/full/aron-lorincz-vestigia-vitae-04-detail-01.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 4 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/4/details/details-02.jpg",
-      "full": "images/vestigia-vitae/artworks/4/details/full/details-02.jpg",
+      "src": "images/vestigia-vitae/artworks/4/details/aron-lorincz-vestigia-vitae-04-detail-02.jpg",
+      "full": "images/vestigia-vitae/artworks/4/details/full/aron-lorincz-vestigia-vitae-04-detail-02.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 4 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/4/details/details-03.jpg",
-      "full": "images/vestigia-vitae/artworks/4/details/full/details-03.jpg",
+      "src": "images/vestigia-vitae/artworks/4/details/aron-lorincz-vestigia-vitae-04-detail-03.jpg",
+      "full": "images/vestigia-vitae/artworks/4/details/full/aron-lorincz-vestigia-vitae-04-detail-03.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 4 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/4/details/details-04.jpg",
-      "full": "images/vestigia-vitae/artworks/4/details/full/details-04.jpg",
+      "src": "images/vestigia-vitae/artworks/4/details/aron-lorincz-vestigia-vitae-04-detail-04.jpg",
+      "full": "images/vestigia-vitae/artworks/4/details/full/aron-lorincz-vestigia-vitae-04-detail-04.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 4 — detail views"
      }
     ]
@@ -158,23 +158,23 @@ window.ARTWORK_DATA["vestigia-vitae"] = {
     "label": "Detail views",
     "items": [
      {
-      "src": "images/vestigia-vitae/artworks/5/details/details-01.jpg",
-      "full": "images/vestigia-vitae/artworks/5/details/full/details-01.jpg",
+      "src": "images/vestigia-vitae/artworks/5/details/aron-lorincz-vestigia-vitae-05-detail-01.jpg",
+      "full": "images/vestigia-vitae/artworks/5/details/full/aron-lorincz-vestigia-vitae-05-detail-01.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 5 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/5/details/details-02.jpg",
-      "full": "images/vestigia-vitae/artworks/5/details/full/details-02.jpg",
+      "src": "images/vestigia-vitae/artworks/5/details/aron-lorincz-vestigia-vitae-05-detail-02.jpg",
+      "full": "images/vestigia-vitae/artworks/5/details/full/aron-lorincz-vestigia-vitae-05-detail-02.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 5 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/5/details/details-03.jpg",
-      "full": "images/vestigia-vitae/artworks/5/details/full/details-03.jpg",
+      "src": "images/vestigia-vitae/artworks/5/details/aron-lorincz-vestigia-vitae-05-detail-03.jpg",
+      "full": "images/vestigia-vitae/artworks/5/details/full/aron-lorincz-vestigia-vitae-05-detail-03.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 5 — detail views"
      },
      {
-      "src": "images/vestigia-vitae/artworks/5/details/details-04.jpg",
-      "full": "images/vestigia-vitae/artworks/5/details/full/details-04.jpg",
+      "src": "images/vestigia-vitae/artworks/5/details/aron-lorincz-vestigia-vitae-05-detail-04.jpg",
+      "full": "images/vestigia-vitae/artworks/5/details/full/aron-lorincz-vestigia-vitae-05-detail-04.jpg",
       "alt": "Aron Lorincz — Vestigia Vitae No. 5 — detail views"
      }
     ]

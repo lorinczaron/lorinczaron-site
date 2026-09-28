@@ -14,50 +14,50 @@ window.ARTWORK_DATA = {
         "label": "Detail shots",
         "items": [
           {
-            "src": "images/status-intermedius/artworks/14/details/details-01.jpg",
-            "full": "images/status-intermedius/artworks/14/details/full/details-01.jpg",
+            "src": "images/status-intermedius/artworks/14/details/aron-lorincz-status-intermedius-14-detail-01.jpg",
+            "full": "images/status-intermedius/artworks/14/details/full/aron-lorincz-status-intermedius-14-detail-01.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — details 1",
             "origin": "details/DSCF6752.JPG"
           },
           {
-            "src": "images/status-intermedius/artworks/14/details/details-02.jpg",
-            "full": "images/status-intermedius/artworks/14/details/full/details-02.jpg",
+            "src": "images/status-intermedius/artworks/14/details/aron-lorincz-status-intermedius-14-detail-02.jpg",
+            "full": "images/status-intermedius/artworks/14/details/full/aron-lorincz-status-intermedius-14-detail-02.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — details 2",
             "origin": "details/DSCF6754.JPG"
           },
           {
-            "src": "images/status-intermedius/artworks/14/details/details-03.jpg",
-            "full": "images/status-intermedius/artworks/14/details/full/details-03.jpg",
+            "src": "images/status-intermedius/artworks/14/details/aron-lorincz-status-intermedius-14-detail-03.jpg",
+            "full": "images/status-intermedius/artworks/14/details/full/aron-lorincz-status-intermedius-14-detail-03.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — details 3",
             "origin": "details/DSCF6763.JPG"
           },
           {
-            "src": "images/status-intermedius/artworks/14/details/details-04.jpg",
-            "full": "images/status-intermedius/artworks/14/details/full/details-04.jpg",
+            "src": "images/status-intermedius/artworks/14/details/aron-lorincz-status-intermedius-14-detail-04.jpg",
+            "full": "images/status-intermedius/artworks/14/details/full/aron-lorincz-status-intermedius-14-detail-04.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — details 4",
             "origin": "details/DSCF6781.JPG"
           },
           {
-            "src": "images/status-intermedius/artworks/14/details/details-05.jpg",
-            "full": "images/status-intermedius/artworks/14/details/full/details-05.jpg",
+            "src": "images/status-intermedius/artworks/14/details/aron-lorincz-status-intermedius-14-detail-05.jpg",
+            "full": "images/status-intermedius/artworks/14/details/full/aron-lorincz-status-intermedius-14-detail-05.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — details 5",
             "origin": "details/DSCF6783.JPG"
           },
           {
-            "src": "images/status-intermedius/artworks/14/details/details-06.jpg",
-            "full": "images/status-intermedius/artworks/14/details/full/details-06.jpg",
+            "src": "images/status-intermedius/artworks/14/details/aron-lorincz-status-intermedius-14-detail-06.jpg",
+            "full": "images/status-intermedius/artworks/14/details/full/aron-lorincz-status-intermedius-14-detail-06.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — details 6",
             "origin": "details/DSCF6784.JPG"
           },
           {
-            "src": "images/status-intermedius/artworks/14/details/details-07.jpg",
-            "full": "images/status-intermedius/artworks/14/details/full/details-07.jpg",
+            "src": "images/status-intermedius/artworks/14/details/aron-lorincz-status-intermedius-14-detail-07.jpg",
+            "full": "images/status-intermedius/artworks/14/details/full/aron-lorincz-status-intermedius-14-detail-07.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — details 7",
             "origin": "details/IMG_20260418_174514.jpg"
           },
           {
-            "src": "images/status-intermedius/artworks/14/details/details-08.jpg",
-            "full": "images/status-intermedius/artworks/14/details/full/details-08.jpg",
+            "src": "images/status-intermedius/artworks/14/details/aron-lorincz-status-intermedius-14-detail-08.jpg",
+            "full": "images/status-intermedius/artworks/14/details/full/aron-lorincz-status-intermedius-14-detail-08.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — details 8",
             "origin": "details/IMG_20260418_174706.jpg"
           }
@@ -68,26 +68,26 @@ window.ARTWORK_DATA = {
         "label": "Progress stages",
         "items": [
           {
-            "src": "images/status-intermedius/artworks/14/mof/mof-01.jpg",
-            "full": "images/status-intermedius/artworks/14/mof/full/mof-01.jpg",
+            "src": "images/status-intermedius/artworks/14/mof/aron-lorincz-status-intermedius-14-progress-01.jpg",
+            "full": "images/status-intermedius/artworks/14/mof/full/aron-lorincz-status-intermedius-14-progress-01.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — progress stages 1",
             "origin": "mof/IMG_20260219_082622.jpg"
           },
           {
-            "src": "images/status-intermedius/artworks/14/mof/mof-02.jpg",
-            "full": "images/status-intermedius/artworks/14/mof/full/mof-02.jpg",
+            "src": "images/status-intermedius/artworks/14/mof/aron-lorincz-status-intermedius-14-progress-02.jpg",
+            "full": "images/status-intermedius/artworks/14/mof/full/aron-lorincz-status-intermedius-14-progress-02.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — progress stages 2",
             "origin": "mof/IMG_20260220_112405.jpg"
           },
           {
-            "src": "images/status-intermedius/artworks/14/mof/mof-03.jpg",
-            "full": "images/status-intermedius/artworks/14/mof/full/mof-03.jpg",
+            "src": "images/status-intermedius/artworks/14/mof/aron-lorincz-status-intermedius-14-progress-03.jpg",
+            "full": "images/status-intermedius/artworks/14/mof/full/aron-lorincz-status-intermedius-14-progress-03.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — progress stages 3",
             "origin": "mof/IMG_20260311_154508.jpg"
           },
           {
-            "src": "images/status-intermedius/artworks/14/mof/mof-04.jpg",
-            "full": "images/status-intermedius/artworks/14/mof/full/mof-04.jpg",
+            "src": "images/status-intermedius/artworks/14/mof/aron-lorincz-status-intermedius-14-progress-04.jpg",
+            "full": "images/status-intermedius/artworks/14/mof/full/aron-lorincz-status-intermedius-14-progress-04.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — progress stages 4",
             "origin": "mof/IMG_20260311_154515.jpg"
           }
@@ -98,20 +98,20 @@ window.ARTWORK_DATA = {
         "label": "Exhibition",
         "items": [
           {
-            "src": "images/status-intermedius/artworks/14/exhibition/exhibition-01.jpg",
-            "full": "images/status-intermedius/artworks/14/exhibition/full/exhibition-01.jpg",
+            "src": "images/status-intermedius/artworks/14/exhibition/aron-lorincz-status-intermedius-14-exhibition-01.jpg",
+            "full": "images/status-intermedius/artworks/14/exhibition/full/aron-lorincz-status-intermedius-14-exhibition-01.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — exhibition 1",
             "origin": "exhibition/DSCF6838 copy.jpg"
           },
           {
-            "src": "images/status-intermedius/artworks/14/exhibition/exhibition-02.jpg",
-            "full": "images/status-intermedius/artworks/14/exhibition/full/exhibition-02.jpg",
+            "src": "images/status-intermedius/artworks/14/exhibition/aron-lorincz-status-intermedius-14-exhibition-02.jpg",
+            "full": "images/status-intermedius/artworks/14/exhibition/full/aron-lorincz-status-intermedius-14-exhibition-02.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — exhibition 2",
             "origin": "exhibition/IMG_20260509_162931.jpg"
           },
           {
-            "src": "images/status-intermedius/artworks/14/exhibition/exhibition-03.jpg",
-            "full": "images/status-intermedius/artworks/14/exhibition/full/exhibition-03.jpg",
+            "src": "images/status-intermedius/artworks/14/exhibition/aron-lorincz-status-intermedius-14-exhibition-03.jpg",
+            "full": "images/status-intermedius/artworks/14/exhibition/full/aron-lorincz-status-intermedius-14-exhibition-03.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — exhibition 3",
             "origin": "exhibition/PXL_20210918_130242556~2.jpg"
           }
@@ -122,56 +122,56 @@ window.ARTWORK_DATA = {
         "label": "Imaginary In-situ visualizations",
         "items": [
           {
-            "src": "images/status-intermedius/artworks/14/in_situ/in_situ-01.jpg",
-            "full": "images/status-intermedius/artworks/14/in_situ/full/in_situ-01.jpg",
+            "src": "images/status-intermedius/artworks/14/in_situ/aron-lorincz-status-intermedius-14-in-situ-01.jpg",
+            "full": "images/status-intermedius/artworks/14/in_situ/full/aron-lorincz-status-intermedius-14-in-situ-01.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — imaginary in-situ visualizations 1",
             "origin": "in_situ/download-1778525154559.png"
           },
           {
-            "src": "images/status-intermedius/artworks/14/in_situ/in_situ-02.jpg",
-            "full": "images/status-intermedius/artworks/14/in_situ/full/in_situ-02.jpg",
+            "src": "images/status-intermedius/artworks/14/in_situ/aron-lorincz-status-intermedius-14-in-situ-02.jpg",
+            "full": "images/status-intermedius/artworks/14/in_situ/full/aron-lorincz-status-intermedius-14-in-situ-02.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — imaginary in-situ visualizations 2",
             "origin": "in_situ/download-1778525541335.png"
           },
           {
-            "src": "images/status-intermedius/artworks/14/in_situ/in_situ-03.jpg",
-            "full": "images/status-intermedius/artworks/14/in_situ/full/in_situ-03.jpg",
+            "src": "images/status-intermedius/artworks/14/in_situ/aron-lorincz-status-intermedius-14-in-situ-03.jpg",
+            "full": "images/status-intermedius/artworks/14/in_situ/full/aron-lorincz-status-intermedius-14-in-situ-03.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — imaginary in-situ visualizations 3",
             "origin": "in_situ/download-1778528043682.png"
           },
           {
-            "src": "images/status-intermedius/artworks/14/in_situ/in_situ-04.jpg",
-            "full": "images/status-intermedius/artworks/14/in_situ/full/in_situ-04.jpg",
+            "src": "images/status-intermedius/artworks/14/in_situ/aron-lorincz-status-intermedius-14-in-situ-04.jpg",
+            "full": "images/status-intermedius/artworks/14/in_situ/full/aron-lorincz-status-intermedius-14-in-situ-04.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — imaginary in-situ visualizations 4",
             "origin": "in_situ/new-project.png"
           },
           {
-            "src": "images/status-intermedius/artworks/14/in_situ/in_situ-05.jpg",
-            "full": "images/status-intermedius/artworks/14/in_situ/full/in_situ-05.jpg",
+            "src": "images/status-intermedius/artworks/14/in_situ/aron-lorincz-status-intermedius-14-in-situ-05.jpg",
+            "full": "images/status-intermedius/artworks/14/in_situ/full/aron-lorincz-status-intermedius-14-in-situ-05.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — imaginary in-situ visualizations 5",
             "origin": "in_situ/set_photo_generator_1_54uc3r6h74prpezv086h_0.png"
           },
           {
-            "src": "images/status-intermedius/artworks/14/in_situ/in_situ-06.jpg",
-            "full": "images/status-intermedius/artworks/14/in_situ/full/in_situ-06.jpg",
+            "src": "images/status-intermedius/artworks/14/in_situ/aron-lorincz-status-intermedius-14-in-situ-06.jpg",
+            "full": "images/status-intermedius/artworks/14/in_situ/full/aron-lorincz-status-intermedius-14-in-situ-06.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — imaginary in-situ visualizations 6",
             "origin": "in_situ/set_photo_generator_1_igikb3r2sulmhvoyubrx_0.png"
           },
           {
-            "src": "images/status-intermedius/artworks/14/in_situ/in_situ-07.jpg",
-            "full": "images/status-intermedius/artworks/14/in_situ/full/in_situ-07.jpg",
+            "src": "images/status-intermedius/artworks/14/in_situ/aron-lorincz-status-intermedius-14-in-situ-07.jpg",
+            "full": "images/status-intermedius/artworks/14/in_situ/full/aron-lorincz-status-intermedius-14-in-situ-07.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — imaginary in-situ visualizations 7",
             "origin": "in_situ/set_photo_generator_1_o9em30u5ww0me1s8pk4j_0.png"
           },
           {
-            "src": "images/status-intermedius/artworks/14/in_situ/in_situ-08.jpg",
-            "full": "images/status-intermedius/artworks/14/in_situ/full/in_situ-08.jpg",
+            "src": "images/status-intermedius/artworks/14/in_situ/aron-lorincz-status-intermedius-14-in-situ-08.jpg",
+            "full": "images/status-intermedius/artworks/14/in_situ/full/aron-lorincz-status-intermedius-14-in-situ-08.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — imaginary in-situ visualizations 8",
             "origin": "in_situ/set_photo_generator_1_rylfpssen5nmvbujk5gr_0.png"
           },
           {
-            "src": "images/status-intermedius/artworks/14/in_situ/in_situ-09.jpg",
-            "full": "images/status-intermedius/artworks/14/in_situ/full/in_situ-09.jpg",
+            "src": "images/status-intermedius/artworks/14/in_situ/aron-lorincz-status-intermedius-14-in-situ-09.jpg",
+            "full": "images/status-intermedius/artworks/14/in_situ/full/aron-lorincz-status-intermedius-14-in-situ-09.jpg",
             "alt": "Aron Lorincz — Status Intermedius No. 14 — imaginary in-situ visualizations 9",
             "origin": "in_situ/set_photo_generator_2_mrfx1xyay1x4dbvbqfoi_0.png"
           }

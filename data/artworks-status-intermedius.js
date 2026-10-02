@@ -581,5 +581,73 @@ window.ARTWORK_DATA["status-intermedius"] = {
     ]
    }
   ]
+ },
+ "15": {
+  "num": 15,
+  "gallery": "status-intermedius",
+  "title": "Status Intermedius No. 15",
+  "meta": "oil on panel, 60 × 75 cm",
+  "frameClass": "frame-60x75-vilagos",
+  "hero": "images/status-intermedius/works/aron-lorincz-status-intermedius-15.jpg",
+  "heroFull": "images/status-intermedius/works/full/aron-lorincz-status-intermedius-15.jpg",
+  "sections": [
+   {
+    "key": "details",
+    "label": "Detail views",
+    "items": [
+     {
+      "src": "images/status-intermedius/artworks/15/details/aron-lorincz-status-intermedius-15-detail-01.jpg",
+      "full": "images/status-intermedius/artworks/15/details/full/aron-lorincz-status-intermedius-15-detail-01.jpg",
+      "alt": "Aron Lorincz — Status Intermedius No. 15 — detail views"
+     },
+     {
+      "src": "images/status-intermedius/artworks/15/details/aron-lorincz-status-intermedius-15-detail-02.jpg",
+      "full": "images/status-intermedius/artworks/15/details/full/aron-lorincz-status-intermedius-15-detail-02.jpg",
+      "alt": "Aron Lorincz — Status Intermedius No. 15 — detail views"
+     },
+     {
+      "src": "images/status-intermedius/artworks/15/details/aron-lorincz-status-intermedius-15-detail-03.jpg",
+      "full": "images/status-intermedius/artworks/15/details/full/aron-lorincz-status-intermedius-15-detail-03.jpg",
+      "alt": "Aron Lorincz — Status Intermedius No. 15 — detail views"
+     },
+     {
+      "src": "images/status-intermedius/artworks/15/details/aron-lorincz-status-intermedius-15-detail-04.jpg",
+      "full": "images/status-intermedius/artworks/15/details/full/aron-lorincz-status-intermedius-15-detail-04.jpg",
+      "alt": "Aron Lorincz — Status Intermedius No. 15 — detail views"
+     }
+    ]
+   },
+   {
+    "key": "mof",
+    "label": "Progress stages",
+    "items": [
+     {
+      "src": "images/status-intermedius/artworks/15/mof/aron-lorincz-status-intermedius-15-progress-01.jpg",
+      "full": "images/status-intermedius/artworks/15/mof/full/aron-lorincz-status-intermedius-15-progress-01.jpg",
+      "alt": "Aron Lorincz — Status Intermedius No. 15 — progress stages"
+     },
+     {
+      "src": "images/status-intermedius/artworks/15/mof/aron-lorincz-status-intermedius-15-progress-02.jpg",
+      "full": "images/status-intermedius/artworks/15/mof/full/aron-lorincz-status-intermedius-15-progress-02.jpg",
+      "alt": "Aron Lorincz — Status Intermedius No. 15 — progress stages"
+     },
+     {
+      "src": "images/status-intermedius/artworks/15/mof/aron-lorincz-status-intermedius-15-progress-03.jpg",
+      "full": "images/status-intermedius/artworks/15/mof/full/aron-lorincz-status-intermedius-15-progress-03.jpg",
+      "alt": "Aron Lorincz — Status Intermedius No. 15 — progress stages"
+     },
+     {
+      "src": "images/status-intermedius/artworks/15/mof/aron-lorincz-status-intermedius-15-progress-04.jpg",
+      "full": "images/status-intermedius/artworks/15/mof/full/aron-lorincz-status-intermedius-15-progress-04.jpg",
+      "alt": "Aron Lorincz — Status Intermedius No. 15 — progress stages"
+     },
+     {
+      "src": "images/status-intermedius/artworks/15/mof/aron-lorincz-status-intermedius-15-progress-05.jpg",
+      "full": "images/status-intermedius/artworks/15/mof/full/aron-lorincz-status-intermedius-15-progress-05.jpg",
+      "alt": "Aron Lorincz — Status Intermedius No. 15 — progress stages"
+     }
+    ]
+   }
+  ]
  }
 };

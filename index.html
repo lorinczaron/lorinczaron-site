@@ -10,8 +10,8 @@
   var ls=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||""];
   if(ls.some(function(l){return String(l).toLowerCase().indexOf("hu")===0;}))location.replace("/hu/");}catch(e){}})();
   </script>
-  <title>Aron Lorincz | Embrace Stillness - slow presence in a fast world</title>
-  <meta name="description" content="Explore the oil painting art of Aron Lorincz, highlighting modern abstraction and slow presence amidst a fast-paced world.">
+  <title>Aron Lorincz (b. 1979) – painter, Budapest | oil paintings</title>
+  <meta name="description" content="Áron Lőrincz (b. 1979) is a Budapest-based oil painter trained as an architect, founder of Aron Lorincz Ateliers. Series: Status Intermedius, Vestigia Vitae, Structura Ex Machina.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -25,12 +25,12 @@
   <meta property="og:site_name" content="Aron Lorincz">
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://lorinczaron.com/">
-  <meta property="og:title" content="Aron Lorincz | Contemporary Oil Painter — Embrace Stillness">
-  <meta property="og:description" content="The official site of Aron Lorincz (Áron Lőrincz), contemporary oil painter. Still lifes and figurative works on slow presence in a fast world.">
+  <meta property="og:title" content="Aron Lorincz (b. 1979) – painter, Budapest">
+  <meta property="og:description" content="Áron Lőrincz (b. 1979) is a Budapest-based oil painter trained as an architect, founder of Aron Lorincz Ateliers. Series: Status Intermedius, Vestigia Vitae, Structura Ex Machina.">
   <meta property="og:image" content="https://lorinczaron.com/images/common/aron-lorincz-og.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aron Lorincz | Contemporary Oil Painter">
-  <meta name="twitter:description" content="The official site of Aron Lorincz (Áron Lőrincz), contemporary oil painter.">
+  <meta name="twitter:title" content="Aron Lorincz (b. 1979) – painter, Budapest">
+  <meta name="twitter:description" content="Áron Lőrincz (b. 1979) is a Budapest-based oil painter trained as an architect, founder of Aron Lorincz Ateliers. Series: Status Intermedius, Vestigia Vitae, Structura Ex Machina.">
   <meta name="twitter:image" content="https://lorinczaron.com/images/common/aron-lorincz-og.jpg">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -45,19 +45,24 @@
         "@type": "Person",
         "@id": "https://lorinczaron.com/#person",
         "name": "Aron Lorincz",
-        "alternateName": "Áron Lőrincz",
-        "url": "https://lorinczaron.com/",
-        "sameAs": ["https://www.instagram.com/aron.lorincz.painter", "https://www.linkedin.com/in/lorinczaron/", "https://www.wikidata.org/wiki/Q141000591"],
+                "url": "https://lorinczaron.com/",
+        "alternateName": ["Áron Lőrincz", "Lőrincz Áron"],
+        "sameAs": ["https://www.instagram.com/aron.lorincz.painter", "https://www.linkedin.com/in/lorinczaron/", "https://www.wikidata.org/wiki/Q141000591", "https://budapest.artineris.com/en/artists/?acode=FMAAXY"],
+        "birthDate": "1979",
+        "birthPlace": { "@type": "Place", "name": "Budapest, Hungary" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Moholy-Nagy University of Art and Design (MOME)", "sameAs": "https://www.wikidata.org/wiki/Q718311" },
+        "disambiguatingDescription": "Hungarian painter and architect, born 1979 in Budapest; studied architecture at MOME (1999–2004); founder of the architectural visualization studio Aron Lorincz Ateliers (ALA); painter of the series Status Intermedius, Vestigia Vitae and Structura Ex Machina.",
         "image": "https://lorinczaron.com/images/home/aron-lorincz-still-life.jpg",
         "jobTitle": "Painter",
-        "description": "Contemporary Hungarian oil painter creating still lifes and figurative works that explore stillness and slow presence in a fast-paced world.",
+        "description": "Áron Lőrincz (b. 1979) is a Budapest-based oil painter trained as an architect, founder of Aron Lorincz Ateliers. Series: Status Intermedius, Vestigia Vitae, Structura Ex Machina.",
         "nationality": "Hungarian",
         "knowsAbout": ["Oil painting", "Contemporary art", "Still life painting", "Figurative painting"],
         "workLocation": { "@type": "Place", "name": "Budapest, Hungary" },
         "worksFor": {
           "@type": "Organization",
           "name": "Aron Lorincz Ateliers",
-          "url": "https://aronlorincz.com/"
+          "url": "https://aronlorincz.com/",
+          "founder": { "@id": "https://lorinczaron.com/#person" }
         }
       },
       {

@@ -227,6 +227,15 @@ function artworkFromSrc(src) {
   return (data && data[num]) ? data[num] : null;
 }
 
+// magyar oldalon (html lang="hu") a panel dinamikus szövegei magyarul jelennek meg
+const AP_HU = document.documentElement.lang === 'hu';
+const AP_SEC_HU = { 'Detail views': 'Részletek', 'Details': 'Részletek', 'Progress stages': 'Munkafázisok', 'Exhibition': 'Kiállítás', 'In situ': 'Enteriőr', 'Studio': 'Műterem' };
+const AP_MEDIUM_HU = { 'oil on panel': 'olaj, falemez', 'oil on linen': 'olaj, vászon', 'oil on canvas': 'olaj, vászon' };
+function apMeta(m) {
+  if (!AP_HU || !m) return m || '';
+  const i = m.indexOf(','), med = (i < 0 ? m : m.slice(0, i)).trim().toLowerCase();
+  return AP_MEDIUM_HU[med] ? AP_MEDIUM_HU[med] + (i < 0 ? '' : m.slice(i)) : m;
+}
 const apBackdrop = document.createElement('div');
 apBackdrop.className = 'ap-backdrop';
 const CHEV_L = '<svg width="14" height="22" viewBox="0 0 14 22" aria-hidden="true"><path d="M10 2 3.5 11 10 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -239,7 +248,7 @@ apBackdrop.innerHTML =
     '<div class="ap-head"><h2></h2><div class="ap-meta"></div></div>' +
     '<div class="ap-hero"></div>' +
     '<div class="ap-sections"></div>' +
-    '<div class="ap-foot"><button class="ap-back">&#8592; Back to gallery</button></div>' +
+    '<div class="ap-foot"><button class="ap-back">&#8592; ' + (AP_HU ? 'Vissza a galériához' : 'Back to gallery') + '</button></div>' +
   '</div>';
 document.body.appendChild(apBackdrop);
 const apPanel = apBackdrop.querySelector('.ap-panel');
@@ -247,13 +256,13 @@ const apPanel = apBackdrop.querySelector('.ap-panel');
 function openArtworkPanel(d) {
   if (!d) return;
   apBackdrop.querySelector('.ap-head h2').textContent = d.title || '';
-  apBackdrop.querySelector('.ap-head .ap-meta').textContent = d.meta || '';
+  apBackdrop.querySelector('.ap-head .ap-meta').textContent = apMeta(d.meta);
   // sold marker (set by _DASHBOARD_/tools/site_mark_sold.py via "sold": true)
   const apHead = apBackdrop.querySelector('.ap-head');
   const oldSold = apHead.querySelector('.ap-sold'); if (oldSold) oldSold.remove();
   if (d.sold) {
     const s = document.createElement('div'); s.className = 'ap-sold';
-    s.textContent = (window.__lorinczLang === 'hu') ? 'eladva · magángyűjtemény' : 'sold · private collection';
+    s.textContent = (AP_HU || window.__lorinczLang === 'hu') ? 'eladva · magángyűjtemény' : 'sold · private collection';
     apHead.appendChild(s);
   }
 
@@ -298,7 +307,7 @@ function openArtworkPanel(d) {
     const s = document.createElement('section');
     s.className = 'ap-section';
     const h = document.createElement('h3');
-    h.textContent = sec.label;
+    h.textContent = (AP_HU && AP_SEC_HU[sec.label]) || sec.label;
     const g = document.createElement('div');
     g.className = 'ap-grid';
     sec.items.forEach(it => {

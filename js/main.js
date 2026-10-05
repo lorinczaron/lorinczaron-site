@@ -182,32 +182,6 @@ if (form) {
   else mq.addListener(apply);                 // régebbi Safari
 })();
 
-// Mobil swipe-galéria nyíl-jelzői: a .can-left / .can-right osztályt a tényleges
-// görgethetőség szerint tesszük ki, így az első képnél nincs balra mutató nyíl,
-// az utolsónál pedig eltűnik a jobbra mutató. A nyilakat a style.css rajzolja
-// (két háttérréteg), itt csak a kapcsolgatás történik.
-(function () {
-  const grids = document.querySelectorAll('.work-grid:not(.insitu)');
-  if (!grids.length) return;
-  const mq = window.matchMedia('(max-width: 600px)');
-  const EPS = 4;                              // tolerancia a lebegőpontos scrollLeft-re
-
-  function update(g) {
-    const max = g.scrollWidth - g.clientWidth;
-    const on = mq.matches && max > EPS;       // asztali nézetben / ha nincs mit görgetni: nincs nyíl
-    g.classList.toggle('can-left', on && g.scrollLeft > EPS);
-    g.classList.toggle('can-right', on && g.scrollLeft < max - EPS);
-  }
-  const updateAll = () => grids.forEach(g => update(g));
-
-  grids.forEach(g => g.addEventListener('scroll', () => update(g), { passive: true }));
-  window.addEventListener('resize', updateAll);
-  // a képek lusta betöltése után változhat a scrollWidth, ezért a load után is
-  window.addEventListener('load', updateAll);
-  if (mq.addEventListener) mq.addEventListener('change', updateAll);
-  updateAll();
-})();
-
 /* ============================================================
    ARTWORK DETAIL PANEL
    Adatforrás: data/artworks.js -> window.ARTWORK_DATA[id]

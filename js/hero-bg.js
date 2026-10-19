@@ -182,24 +182,41 @@
 
   if (reduce || IMGS.length < 2) return;
 
+  /* A kovetkezo kepet mar a varakozas alatt letoltjuk, hogy a valtas ne csusszon
+     el a halozat miatt - igy a ritmus egyenletes marad. */
+  var ahead = null;
+  function preloadNext() {
+    var url = nextUrl(), im = new Image();
+    ahead = {url: url, img: im, ok: false, failed: false};
+    im.onload  = function () { ahead.ok = true; };
+    im.onerror = function () { ahead.failed = true; };
+    im.src = url;
+  }
+
+  function swap(url) {
+    var nxt = layers[1 - cur], old = layers[cur];
+    nxt.src = url;
+    nxt.style.transition = 'none';
+    nxt.style.opacity = '0';
+    void nxt.offsetWidth;
+    animate(nxt);
+    nxt.style.transition = 'opacity ' + FADE + 'ms ease-in-out';
+    old.style.transition = 'opacity ' + FADE + 'ms ease-in-out';
+    nxt.style.opacity = '1';
+    old.style.opacity = '0';
+    cur = 1 - cur;
+    preloadNext();                /* a kovetkezo kep mar tolthet */
+    schedule(FADE + HOLD);        /* a kovetkezo valtas az athalas utan szamolt 3 mp */
+  }
+
   function step() {
-    var url = nextUrl(), pre = new Image();
-    pre.onload = function () {
-      var nxt = layers[1 - cur], old = layers[cur];
-      nxt.src = url;
-      nxt.style.transition = 'none';
-      nxt.style.opacity = '0';
-      void nxt.offsetWidth;
-      animate(nxt);
-      nxt.style.transition = 'opacity ' + FADE + 'ms ease-in-out';
-      old.style.transition = 'opacity ' + FADE + 'ms ease-in-out';
-      nxt.style.opacity = '1';
-      old.style.opacity = '0';
-      cur = 1 - cur;
-      schedule(FADE + HOLD);   /* a kovetkezo valtas az athalas UTAN szamolt 3 mp */
-    };
-    pre.onerror = function () { schedule(HOLD); };   /* hianyzo kep: tovabb a kovetkezore */
-    pre.src = url;
+    if (!ahead) { preloadNext(); }
+    if (ahead.failed) { preloadNext(); schedule(80); return; }   /* hianyzo kep: tovabb */
+    if (ahead.ok) { swap(ahead.url); return; }
+    /* meg tolt: megvarjuk, de nem kesleltetjuk tovabb a kelletenel */
+    var a = ahead;
+    a.img.onload  = function () { if (ahead === a) swap(a.url); };
+    a.img.onerror = function () { if (ahead === a) { preloadNext(); schedule(80); } };
   }
 
   function schedule(delay) {
@@ -212,5 +229,6 @@
     if (document.hidden) window.clearTimeout(timer); else schedule(HOLD);
   });
 
+  preloadNext();
   schedule(HOLD);
 })();

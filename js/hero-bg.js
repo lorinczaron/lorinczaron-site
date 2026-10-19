@@ -113,13 +113,16 @@
   /* A mozgasok. A kep a kepkockanal mindig szelesebb (2,5:1 vagas egy ~16:9 savban),
      ezert a vizszintes sodras mindig fer; a fuggolegeshez es a zoomhoz a kis
      alap-nagyitas ad helyet. Minden ertek szazalek, szandekosan apro. */
+  /* Az eltolas a transzformban a scale UTAN all, ezert a tenyleges elmozdulas
+     scale * szazalek; a kilogas elkerulesehez minden oldalon (scale-1)/2 hely kell.
+     Az alabbi ertekek ezt betartjak: 1,10 * 3,2% = 3,52% < 5%. */
   var MOVES = [
-    {s0:1.06, s1:1.06, x0: 1.6, x1:-1.6, y0: 0,   y1: 0  },  /* sodras balra   */
-    {s0:1.06, s1:1.06, x0:-1.6, x1: 1.6, y0: 0,   y1: 0  },  /* sodras jobbra  */
-    {s0:1.02, s1:1.09, x0: 0,   x1: 0,   y0: 0,   y1: 0  },  /* rakozelit      */
-    {s0:1.09, s1:1.02, x0: 0,   x1: 0,   y0: 0,   y1: 0  },  /* kihatral       */
-    {s0:1.07, s1:1.07, x0: 0,   x1: 0,   y0: 1.4, y1:-1.4},  /* lentrol fel    */
-    {s0:1.07, s1:1.07, x0: 0,   x1: 0,   y0:-1.4, y1: 1.4}   /* fentrol le     */
+    {s0:1.10, s1:1.10, x0: 3.2, x1:-3.2, y0: 0,   y1: 0  },  /* sodras balra   */
+    {s0:1.10, s1:1.10, x0:-3.2, x1: 3.2, y0: 0,   y1: 0  },  /* sodras jobbra  */
+    {s0:1.02, s1:1.16, x0: 0,   x1: 0,   y0: 0,   y1: 0  },  /* rakozelit      */
+    {s0:1.16, s1:1.02, x0: 0,   x1: 0,   y0: 0,   y1: 0  },  /* kihatral       */
+    {s0:1.10, s1:1.10, x0: 0,   x1: 0,   y0: 2.8, y1:-2.8},  /* lentrol fel    */
+    {s0:1.10, s1:1.10, x0: 0,   x1: 0,   y0:-2.8, y1: 2.8}   /* fentrol le     */
   ];
   var LIFE = FADE + HOLD + FADE;   /* ennyi ideig lathato egy kep, a mozgas eddig tart */
 

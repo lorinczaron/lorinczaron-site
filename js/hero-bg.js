@@ -221,6 +221,8 @@
 
   function schedule(delay) {
     window.clearTimeout(timer);
+    /* hatterben levo (vagy ugy megnyitott) fulon ne porogjon es ne toltson kepet */
+    if (document.hidden) return;
     timer = window.setTimeout(step, delay || HOLD);
   }
 

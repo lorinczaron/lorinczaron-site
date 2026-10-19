@@ -1,8 +1,9 @@
 /* A nyitolap hero-hattere: a kepek veletlen sorrendben valtjak egymast, atlatszo
-   athalassal. A lista a webpage/images/home/hero/ mappa tartalma - ha Aron torol
-   vagy betesz oda kepet, ezt a tombot ujra kell generalni (tools: gen_hero_js.py).
-   A kepek 2500-2560 px szelesek, hogy nagy monitoron is elesek legyenek; a build
-   ezt a mappat NEM kicsinyiti. prefers-reduced-motion eseten nincs valtas; a sorrend minden betolteskor mas. */
+   athalassal, es kozben lassan mozognak is - mint egy film. A lista a
+   webpage/images/home/hero/ mappa tartalma; ha Aron torol vagy betesz oda kepet,
+   ezt a tombot ujra kell generalni (_DASHBOARD_/tools/gen_hero_js.py).
+   A kepek 2500 px szelesek, a build ezt a mappat NEM kicsinyiti.
+   prefers-reduced-motion eseten nincs sem valtas, sem mozgas. */
 (function () {
   var IMGS = [
     "/images/home/hero/aron-lorincz-process-01.jpg",
@@ -106,12 +107,27 @@
     "/images/home/hero/aron-lorincz-vestigia-vitae-05-detail-04.jpg"
   ];
 
-  var PER_IMAGE = 4000;  /* ennyi ido jut EGY kepre, az athalassal egyutt (ms) */
-  var FADE      = 1200;  /* ebbol ennyi a ket kep kozti athalas */
-  var HOLD      = Math.max(300, PER_IMAGE - FADE - 60);   /* a mozdulatlan resz */
+  var HOLD = 3000;   /* ennyi ideig all ki egy kep teljes fedettsegben (ms) */
+  var FADE = 1200;   /* a ket kep kozti athalas (ms) - a valtas igy ~4,2 mp-enkent */
+
+  /* A mozgasok. A kep a kepkockanal mindig szelesebb (2,5:1 vagas egy ~16:9 savban),
+     ezert a vizszintes sodras mindig fer; a fuggolegeshez es a zoomhoz a kis
+     alap-nagyitas ad helyet. Minden ertek szazalek, szandekosan apro. */
+  var MOVES = [
+    {s0:1.06, s1:1.06, x0: 1.6, x1:-1.6, y0: 0,   y1: 0  },  /* sodras balra   */
+    {s0:1.06, s1:1.06, x0:-1.6, x1: 1.6, y0: 0,   y1: 0  },  /* sodras jobbra  */
+    {s0:1.02, s1:1.09, x0: 0,   x1: 0,   y0: 0,   y1: 0  },  /* rakozelit      */
+    {s0:1.09, s1:1.02, x0: 0,   x1: 0,   y0: 0,   y1: 0  },  /* kihatral       */
+    {s0:1.07, s1:1.07, x0: 0,   x1: 0,   y0: 1.4, y1:-1.4},  /* lentrol fel    */
+    {s0:1.07, s1:1.07, x0: 0,   x1: 0,   y0:-1.4, y1: 1.4}   /* fentrol le     */
+  ];
+  var LIFE = FADE + HOLD + FADE;   /* ennyi ideig lathato egy kep, a mozgas eddig tart */
 
   var base = document.querySelector('.hero-img');
   if (!base || !IMGS.length) return;
+
+  var reduce = window.matchMedia &&
+               window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function shuffle(a) {
     a = a.slice();
@@ -133,59 +149,68 @@
     return last;
   }
 
-  base.src = nextUrl();
-
-  var still = IMGS.length < 2 ||
-    (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  if (still) return;
-
   var hero = base.parentNode;
-  if (!hero) return;
+  if (!hero) { base.src = nextUrl(); return; }
 
-  /* egy felso reteg: ide toltjuk a kovetkezo kepet, majd ide halunk at */
-  var top = document.createElement('img');
-  top.alt = '';
-  top.setAttribute('aria-hidden', 'true');
-  top.decoding = 'async';
-  top.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;' +
-    'object-fit:cover;opacity:0;z-index:0;transition:opacity ' + FADE + 'ms ease-in-out;';
-  hero.insertBefore(top, base.nextSibling);
+  /* ket reteg, amik felvaltva viszik a kepeket */
+  var LAYER = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;';
+  base.style.cssText += LAYER;
+  var other = document.createElement('img');
+  other.alt = ''; other.setAttribute('aria-hidden', 'true'); other.decoding = 'async';
+  other.style.cssText = LAYER + 'opacity:0;';
+  hero.insertBefore(other, base.nextSibling);
 
+  var layers = [base, other], cur = 0, mi = Math.floor(Math.random() * MOVES.length);
   var timer = null;
 
-  function settle(url) {
-    /* a felso reteget atmenet nelkul visszatesszuk lathatatlanra,
-       miutan az also mar ugyanazt a kepet mutatja */
-    base.src = url;
-    top.style.transition = 'none';
-    top.style.opacity = '0';
-    void top.offsetWidth;                /* kenyszeritett ujraszamolas */
-    top.style.transition = 'opacity ' + FADE + 'ms ease-in-out';
-    schedule();
+  function animate(el) {
+    if (reduce || !el.animate) return;
+    var m = MOVES[mi % MOVES.length]; mi++;
+    try {
+      el.animate(
+        [{transform: 'scale(' + m.s0 + ') translate(' + m.x0 + '%,' + m.y0 + '%)'},
+         {transform: 'scale(' + m.s1 + ') translate(' + m.x1 + '%,' + m.y1 + '%)'}],
+        {duration: LIFE, easing: 'linear', fill: 'forwards'}
+      );
+    } catch (e) {}
   }
 
+  /* elso kep */
+  base.src = nextUrl();
+  base.style.opacity = '1';
+  animate(base);
+
+  if (reduce || IMGS.length < 2) return;
+
   function step() {
-    var url = nextUrl();
-    var pre = new Image();
+    var url = nextUrl(), pre = new Image();
     pre.onload = function () {
-      top.src = url;
-      void top.offsetWidth;
-      top.style.opacity = '1';
-      window.setTimeout(function () { settle(url); }, FADE + 60);
+      var nxt = layers[1 - cur], old = layers[cur];
+      nxt.src = url;
+      nxt.style.transition = 'none';
+      nxt.style.opacity = '0';
+      void nxt.offsetWidth;
+      animate(nxt);
+      nxt.style.transition = 'opacity ' + FADE + 'ms ease-in-out';
+      old.style.transition = 'opacity ' + FADE + 'ms ease-in-out';
+      nxt.style.opacity = '1';
+      old.style.opacity = '0';
+      cur = 1 - cur;
+      schedule(FADE + HOLD);   /* a kovetkezo valtas az athalas UTAN szamolt 3 mp */
     };
-    pre.onerror = function () { schedule(); };   /* hianyzo kep: tovabb a kovetkezore */
+    pre.onerror = function () { schedule(HOLD); };   /* hianyzo kep: tovabb a kovetkezore */
     pre.src = url;
   }
 
-  function schedule() {
+  function schedule(delay) {
     window.clearTimeout(timer);
-    timer = window.setTimeout(step, HOLD);
+    timer = window.setTimeout(step, delay || HOLD);
   }
 
-  /* hatterben levo fulon ne porgessen tovabb */
+  /* hatterben levo fulon ne porogjon tovabb */
   document.addEventListener('visibilitychange', function () {
-    if (document.hidden) window.clearTimeout(timer); else schedule();
+    if (document.hidden) window.clearTimeout(timer); else schedule(HOLD);
   });
 
-  schedule();
+  schedule(HOLD);
 })();

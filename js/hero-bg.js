@@ -129,6 +129,16 @@
   var base = document.querySelector('.hero-img');
   if (!base || !IMGS.length) return;
 
+  /* Ket keplkeszlet van: a 2500x1000-es fekvo (asztali gepre) es az images/home/hero/m/
+     alatti allo 3:4 (telefonra). Keskeny, allo hero-doboznal a fekvo panorambol alig
+     latszana valami, ezert ott az allo valtozatot toltjuk. Minden kepnel ujraszamoljuk,
+     igy a telefon elforgatasa utan a kovetkezo kep mar a masik keszletbol jon. */
+  function src(url) {
+    var h = base.parentNode;
+    var r = (h && h.clientHeight) ? h.clientWidth / h.clientHeight : 2;
+    return r < 1.3 ? url.replace('/hero/', '/hero/m/') : url;
+  }
+
   var reduce = window.matchMedia &&
                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -179,7 +189,7 @@
   }
 
   /* elso kep */
-  base.src = nextUrl();
+  base.src = src(nextUrl());
   base.style.opacity = '1';
   animate(base);
 
@@ -189,7 +199,7 @@
      el a halozat miatt - igy a ritmus egyenletes marad. */
   var ahead = null;
   function preloadNext() {
-    var url = nextUrl(), im = new Image();
+    var url = src(nextUrl()), im = new Image();
     ahead = {url: url, img: im, ok: false, failed: false};
     im.onload  = function () { ahead.ok = true; };
     im.onerror = function () { ahead.failed = true; };

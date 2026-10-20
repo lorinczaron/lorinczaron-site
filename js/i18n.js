@@ -68,10 +68,7 @@
     if (fh[1]) pushTC(fh[1], 'kapcsolat');
     pushHTML(q('.copyright'), 'minden jog fenntartva &copy; L&#337;rincz &Aacute;ron - 2026');
 
-    // Főoldal
-    if (file === 'index') {
-      pushTC(q('.hero-text h3'), 'lassú jelenlét egy gyors világban');
-    }
+    // Főoldal: a hero feliratai 2026-10-20-tól nem jelennek meg, nincs mit fordítani
 
     // Rólam oldal
     if (file === 'about') {
